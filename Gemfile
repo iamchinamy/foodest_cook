@@ -73,6 +73,10 @@ gem 'rubocop-airbnb'
 
 gem 'jp_prefecture'
 
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+
+gem "refile-mini_magick"
+
 gem 'acts-as-taggable-on', '~> 6.0'
 
 gem 'dotenv-rails'
