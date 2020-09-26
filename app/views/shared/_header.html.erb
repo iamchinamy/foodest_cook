@@ -1,0 +1,58 @@
+<!-- ブートストラップじゃない方がいいかも -->
+<nav class="navbar navbar-expand-md">
+	<a class="navbar-brand" href="#">FOODest Cook</a>
+	<div class="collapse navbar-collapse justify-content-center">
+		<form class="form-inline">
+			<input class="form-control" type="search" placeholder="食材やキーワード">
+			<button class="btn btn-outline" type="submit">レシピを探す</button>
+		</form>
+	</div>
+	<div class="collapse navbar-collapse justify-content-end">
+		<ul class="navbar-nav">
+			<% if customer_signed_in? %>
+				<li class="nav-item">
+					<a href="#">マイページ</a>
+				</li>
+				<li class="nav-item">
+					<a href="#">カート</a>
+				</li>
+				<li class="nav-item">
+					<%= link_to destroy_customer_session_path, method: :delete do %>
+						<span>ログアウト</span>
+					<% end %>
+				</li>
+			<% elsif producer_signed_in? %>
+				<li class="nav-item">生産者さまページ</li>
+				<li class="nav-item">
+					<%= link_to my_page_producer_homes_path do %>
+						<span>マイページ</span>
+					<% end %>
+				</li>
+				<li class="nav-item">
+					<%= link_to new_producer_recipe_path do %>
+						<span>レシピを投稿する</span>
+					<% end %>
+				</li>
+				<li class="nav-item">
+					<%= link_to destroy_producer_session_path, method: :delete do %>
+						<span>ログアウト</span>
+					<% end %>
+				</li>
+			<% else %>
+				<li class="nav-item">
+					<a href="#">無料会員登録</a>
+				</li>
+				<li class="nav-item">
+					<%= link_to new_producer_session_path do %>
+						<span>生産者さまログイン</span>
+					<% end %>
+				</li>
+				<li class="nav-itme">
+					<%= link_to new_customer_session_path do %>
+						<span>一般会員さまログイン</span>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</nav>

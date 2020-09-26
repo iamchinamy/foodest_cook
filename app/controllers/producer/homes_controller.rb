@@ -1,0 +1,8 @@
+class Producer::HomesController < ApplicationController
+
+	def my_page
+		@producer = current_producer
+		# @recipes = 投稿者のレシピだけ表示
+	end
+
+end
