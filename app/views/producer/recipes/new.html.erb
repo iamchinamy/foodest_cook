@@ -1,5 +1,45 @@
-<div class="row">
-	<div class="col-xs-12">
-		<h1>レシピ投稿画面</h1>
+<h1>レシピ投稿画面</h1>
+
+<!-- レシピ投稿フォーム -->
+<%= form_with model: @recipe, url: producer_recipes_path do |f| %>
+	<div class="form-group row justify-content-md-center">
+		<%= f.label :title, "レシピタイトル", class: "col-sm-2 col-form-label" %>
+		 <div class="col-sm-6">
+			<%= f.text_field :title, autofocus: true, placeholder: '簡単にできる鶏めし', class: "form-control" %>
+		</div>
 	</div>
-</div>
+	<div class="form-group row justify-content-md-center">
+		<%= f.label :description, "レシピの簡単な説明", class: "col-sm-2 col-form-label" %>
+		<div class="col-sm-6">
+			<%= f.text_area :description, placeholder: 'とりとりファームで育ったブランド鶏の胸肉を使った、しっとり美味しい鶏めし。', class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group row justify-content-md-center h-100">
+		<label for="recipe_image", class="col-sm-2 col-form-label">レシピ完成イメージ</label>
+		<div class="recipe_image col-sm-3">
+			<%= attachment_image_tag @recipe_image, :image, fallback: "no_image.png", size: "200x200", class: "recipe_image" %>
+		</div>
+		<div class="col-sm-3">
+			<%= f.attachment_field :recipe_image, class: "mx-auto", id: 'recipe_image' %>
+		</div>
+	</div>
+	<div class="form-group row justify-content-md-center">
+		<%= f.submit "投稿する", class: "btn col-sm-8" %>
+	</div>
+<% end %>
+
+<script>
+$(function(){
+    // inputのidから情報の取得
+    $('#recipe_image').on('change', function (e) {
+// ここから既存の画像のurlの取得
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+    }
+// ここまで
+    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+});
+});
+
+</script>

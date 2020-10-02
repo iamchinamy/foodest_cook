@@ -1,4 +1,7 @@
 class Recipe < ApplicationRecord
 
-	belongs_to :producers
+	attachment :recipe_image
+
+	belongs_to :producer
+
 end

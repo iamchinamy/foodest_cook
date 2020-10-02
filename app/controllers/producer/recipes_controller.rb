@@ -16,8 +16,12 @@ class Producer::RecipesController < ApplicationController
 
 	def create
 		@recipe = Recipe.new(recipe_params)
-		#if文追加する
-		@recipe.save
+		@recipe.producer_id = current_producer.id
+		if @recipe.save
+			redirect_to my_page_producer_homes_path(current_producer.id)
+		else
+			render "new"
+		end
 	end
 
 	def show
