@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_061057) do
 
   create_table "recipes", force: :cascade do |t|
     t.integer "producer_id"
-    t.integer "recipe_image_id"
+    t.string "recipe_image_id"
     t.string "title"
     t.text "description"
     t.integer "total_time"

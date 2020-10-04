@@ -1,3 +1,36 @@
-<div class="row">
-	<h1>レシピ詳細画面</h1>
+<h2 class="recipe-title">
+	<%= @recipe.title %>
+</h2>
+<div class="line"></div>
+
+<div class="recipe-group">
+	<div class="recipe-image-box">
+		<%= attachment_image_tag(@recipe, :recipe_image, fallback: "no_image.png", class: "recipe-image") %>
+	</div>
+	<div class="recipe-descriptions">
+		<p><%= @recipe.description %></p>
+		<p><%= @recipe.total_time %>　分</p>
+		<p><%= @producer.name %></p>
+		<!-- 投稿者の情報だす -->
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<!-- 投稿者のみが編集できるようにする -->
+<div class="edit-btn">
+	<%= link_to edit_producer_recipe_path(@recipe.id), class: "btn-animation-02" do %>
+		<span>レシピを修正</span>
+	<% end %>
+</div>
+
+<!-- レシピの材料部分 -->
+<div class="recipe-ingredients-group">
+	<h2 class="recipe-title">材料</h2>
+	<div class="line"></div>
+</div>
+
+<!-- レシピの作り方部分 -->
+<div class="recipe-method-group">
+	<h2 class="recipe-title">作り方</h2>
+	<div class="line"></div>
 </div>

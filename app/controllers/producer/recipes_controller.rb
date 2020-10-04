@@ -8,6 +8,11 @@ class Producer::RecipesController < ApplicationController
 
 	def show
 		@recipe = Recipe.find(params:[:id])
+		@producer = @recipe.producer
+	end
+
+	def edit
+		@recipe = Recipe.find(params[:id])
 	end
 
 	def new
@@ -18,7 +23,7 @@ class Producer::RecipesController < ApplicationController
 		@recipe = Recipe.new(recipe_params)
 		@recipe.producer_id = current_producer.id
 		if @recipe.save
-			redirect_to my_page_producer_homes_path(current_producer.id)
+			redirect_to producer_recipe_path(@recipe.id)
 		else
 			render "new"
 		end

@@ -17,7 +17,7 @@
 	<div class="form-group row justify-content-md-center h-100">
 		<label for="recipe_image", class="col-sm-2 col-form-label">レシピ完成イメージ</label>
 		<div class="recipe_image col-sm-3">
-			<%= attachment_image_tag @recipe_image, :image, fallback: "no_image.png", size: "200x200", class: "recipe_image" %>
+			<%= attachment_image_tag @recipe, :recipe_image, fallback: "no_image.png", size: "200x200", class: "recipe_image" %>
 		</div>
 		<div class="col-sm-3">
 			<%= f.attachment_field :recipe_image, class: "mx-auto", id: 'recipe_image' %>
@@ -28,6 +28,8 @@
 	</div>
 <% end %>
 
+
+<!-- レシピ完成イメージのプレビュー機能 -->
 <script>
 $(function(){
     // inputのidから情報の取得
@@ -35,7 +37,7 @@ $(function(){
 // ここから既存の画像のurlの取得
     var reader = new FileReader();
     reader.onload = function (e) {
-        $(".image").attr('src', e.target.result);
+        $(".recipe_image").attr('src', e.target.result);
     }
 // ここまで
     reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
