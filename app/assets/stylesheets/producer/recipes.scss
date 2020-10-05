@@ -41,11 +41,28 @@
 .recipe-descriptions {
 	float: right;
 	height: 200px;
-	width: 400px;
-	background-color: #EBEBE9;
-	margin-top: 50px;
+	width: 450px;
+	padding: 5px 0;
 }
 
+.recipe-description-title {
+	text-align: center;
+}
+
+.recipe-description-line {
+	width: 200px;
+	border-top: 2px solid #EBEBE9;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.recipe-description p {
+	margin-bottom: 2rem;
+}
+
+.description-content {
+	text-align: center;
+}
 
 //レシピ編集ボタンのCSS
 .edit-btn {

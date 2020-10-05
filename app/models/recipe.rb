@@ -4,9 +4,7 @@ class Recipe < ApplicationRecord
 
 	belongs_to :producer
 
-	# レシピに紐づくproducerの定義
-	def producer
-		return Producer.find_by(id: self.producer_id)
-	end
+	has_many :ingredients, dependent: :destroy
+	accepts_nested_attributes_for :ingredients, allow_destroy: true
 
 end

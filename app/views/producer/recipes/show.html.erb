@@ -7,11 +7,23 @@
 	<div class="recipe-image-box">
 		<%= attachment_image_tag(@recipe, :recipe_image, fallback: "no_image.png", class: "recipe-image") %>
 	</div>
+
 	<div class="recipe-descriptions">
-		<p><%= @recipe.description %></p>
-		<p><%= @recipe.total_time %>　分</p>
-		<p><%= @producer.name %></p>
-		<!-- 投稿者の情報だす -->
+		<div class="recipe-description">
+			<h5 class="recipe-description-title">レシピの説明</h4>
+			<div class="recipe-description-line"></div>
+			<p><%= @recipe.description %></p>
+		</div>
+		<div class="total-time">
+			<h5 class="recipe-description-title">調理時間</h4>
+			<div class="recipe-description-line"></div>
+			<p class="description-content"><%= @recipe.total_time %>　分</p>
+		</div>
+		<div class="poster">
+			<h5 class="recipe-description-title">投稿者</h4>
+			<div class="recipe-description-line"></div>
+			<p class="description-content"><%= @recipe.producer.corporate_name %></p>
+		</div>
 	</div>
 	<div class="clearfix"></div>
 </div>

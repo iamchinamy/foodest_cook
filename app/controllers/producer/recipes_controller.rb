@@ -17,6 +17,8 @@ class Producer::RecipesController < ApplicationController
 
 	def new
 		@recipe = Recipe.new
+		@recipe.ingredients.build
+		@recipe.producer_id = current_producer.id
 	end
 
 	def create
@@ -41,7 +43,7 @@ class Producer::RecipesController < ApplicationController
 
 private
 	def recipe_params
-		params.require(:recipe).permit(:title, :description, :total_time, :recipe_image, :producer_id)
+		params.require(:recipe).permit(:title, :description, :total_time, :recipe_image, :producer_id, ingredients_attributes:[:item, :amount, :recipe_id])
 	end
 
 end
