@@ -7,8 +7,9 @@ class Producer::RecipesController < ApplicationController
 	end
 
 	def show
-		@recipe = Recipe.find(params:[:id])
+		@recipe = Recipe.find(params[:id])
 		@producer = @recipe.producer
+		@ingredients = @recipe.ingredients.all
 	end
 
 	def edit
@@ -29,10 +30,6 @@ class Producer::RecipesController < ApplicationController
 		else
 			render "new"
 		end
-	end
-
-	def show
-		@recipe = Recipe.find(params[:id])
 	end
 
 	def update

@@ -30,14 +30,26 @@
 		</div>
 	</div>
 	<%= f.fields_for :ingredients do |i| %>
-		<div class="form-group row justify-content-md-center">
-			<%= i.label :item, "材料", class: "col-sm-2 col-form-label" %>
-			<%= i.text_field :item, placeholder: '鶏胸肉' %>
-		</div>
-		<div class="form-group row justify-content-md-center">
-			<%= i.label :amout, "数量", class: "col-sm-2 col-form-label" %>
-			<%= i.text_field :amount, placeholder: '１枚' %>
-		</div>
+			<div class="ingredient-box">
+				<div class="ingredients from-group justify-content-md-center row">
+					<div class="row col-sm-4">
+						<%= i.label :item, "材料", class: "col-form-label col-sm-2" %>
+						<div class="col-sm-10">
+							<%= i.text_field :item, placeholder: '鶏胸肉', class: "form-control" %>
+						</div>
+					</div>
+					<div class="row col-sm-4">
+						<%= i.label :amout, "数量", class: "col-form-label col-sm-2" %>
+						<div class="col-sm-10">
+							<%= i.text_field :amount, placeholder: '１枚', class: "form-control" %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group justify-content-md-center row">
+				<input type="button" id="btn1" value="btn1">
+		 		<div id="d1">材料を追加する</div>
+		 	</div>
 	<% end %>
 	<div class="form-group row justify-content-md-center">
 		<%= f.submit "投稿する", class: "btn col-sm-8" %>
@@ -48,16 +60,39 @@
 <!-- レシピ完成イメージのプレビュー機能 -->
 <script>
 $(function(){
+
+//レシピ完成イメージのプレビュー機能
     // inputのidから情報の取得
     $('#recipe_image').on('change', function (e) {
-// ここから既存の画像のurlの取得
+	// ここから既存の画像のurlの取得
     var reader = new FileReader();
     reader.onload = function (e) {
         $(".recipe_image").attr('src', e.target.result);
     }
-// ここまで
+	// ここまで
     reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
 });
+//レシピの材料を複数投稿するためのクローン
+    var ingredient_num = $('.ingredients').length;//ingredientsの要素がいくつあるか数える
+
+    $('#btn1').click(function(){
+    	var input =
+	    	'<div class="ingredients">'
+				+ '<div class="form-group row justify-content-md-center">'
+				+ '<label class="col-sm-2 col-form-label" for="recipe_ingredients_attributes_' + ingredient_num + '_item">材料</label>'
+					+ '<input placeholder="鶏胸肉" type="text" name="recipe[ingredients_attributes][' + ingredient_num + '][item]" id="recipe_ingredients_attributes_' + ingredient_num + '_item" />'
+				+ '</div>'
+				+ '<div class="form-group row justify-content-md-center">'
+					+ '<label class="col-sm-2 col-form-label" for="recipe_ingredients_attributes_' + ingredient_num + '_amout">数量</label>'
+					+ '<input placeholder="１枚" type="text" name="recipe[ingredients_attributes][' + ingredient_num + '][amount]" id="recipe_ingredients_attributes_' + ingredient_num + '_amount" />'
+				+ '</div>'
+			+ '</div>';
+
+		$('.ingredient-box').append(input);
+
+  });
 });
+
+
 
 </script>

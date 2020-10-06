@@ -1,20 +1,22 @@
 <div class="container">
-	<h1>レシピ一覧（管理者のコミュニティー部分）</h1>
 	<div class="row">
 		<% @recipes.each do |recipe| %>
-			<div class="recipe_content">
-				<div>
-					<%= image_tag attachment_url(recipe, :recipe_image, :fill, 200, 200, format: "jpg") %>
+				<div class="images">
+					<div class="recipe-images">
+						<%= attachment_image_tag(recipe, :recipe_image, fallback: "no_image.png", format: "jpg", class: "recipe-image") %>
+					</div>
 				</div>
-				<div>
-					<%= link_to producer_recipe_path(recipe.id) do %>
-						<span><%= recipe.title %></span>
-					<% end %>
+				<div class="details">
+					<div>
+						<%= link_to producer_recipe_path(recipe.id) do %>
+							<span><%= recipe.title %></span>
+						<% end %>
+					</div>
+					<div>
+						<p><%= recipe.description %></p>
+					</div>
 				</div>
-				<div>
-					<p><%= recipe.description %></p>
-				</div>
-			</div>
+				<div class="recipe-index-line"></div>
 		<% end %>
 	</div>
 </div>

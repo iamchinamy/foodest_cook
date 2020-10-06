@@ -3,6 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+//recipe#
+
+.recipe-contents {
+	width: 100%;
+}
+
+.images {
+	float: left;
+	padding: 30px 45px;
+}
+
+.recipe-images {
+	width: 400px;
+	height: 300px;
+	overflow: hidden;
+	}
+
+.details {
+	float: right;
+	height: 200px;
+	width: 450px;
+	margin-top: auto;
+}
+
+.recipe-index-line {
+	width: 100%;
+	border-top: 2px solid #EBEBE9;
+	margin: 0 auto;
+}
 
 //recipe#show
 
@@ -43,9 +72,6 @@
 	height: 200px;
 	width: 450px;
 	padding: 5px 0;
-}
-
-.recipe-description-title {
 	text-align: center;
 }
 
@@ -56,13 +82,10 @@
 	margin-bottom: 20px;
 }
 
-.recipe-description p {
+.recipe-descriptions p {
 	margin-bottom: 2rem;
 }
 
-.description-content {
-	text-align: center;
-}
 
 //レシピ編集ボタンのCSS
 .edit-btn {
