@@ -1,14 +1,39 @@
-<div class="row">
+<div class="container">
 	<h1>生産者さまマイページ</h1>
-
 	<h2>登録情報</h2>
-	<table>
-		<tr>
-			<th>登録メールアドレス</th>
-			<td><%= current_producer.email %></td>
-		</tr>
-	</table>
-	
+	<div class="row">
+		<table class="table col-sm-6">
+			<tr>
+				<th>登録メールアドレス</th>
+				<td><%= current_producer.email %></td>
+			</tr>
+			<tr>
+				<th>団体名</th>
+				<td><%= current_producer.corporate_name %></td>
+			</tr>
+			<tr>
+				<th>代表者様氏名</th>
+				<td><%= current_producer.representative %></td>
+			</tr>
+			<tr>
+				<th>郵便番号</th>
+				<td><%= current_producer.post_code %></td>
+			</tr>
+			<tr>
+				<th>住所</th>
+				<td><%= current_producer.address %></td>
+			</tr>
+			<tr>
+				<th>電話番号</th>
+				<td><%= current_producer.phone_number %></td>
+			</tr>
+		</table>
 
+		<%= link_to edit_producer_home_path(current_producer.id) do %>
+			<div class="btn">
+				<span>登録内容を編集する</span>
+			</div>
+		<% end %>
+
+	</div>
 </div>
-
