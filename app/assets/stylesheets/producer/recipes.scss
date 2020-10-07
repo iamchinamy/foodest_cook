@@ -1,3 +1,149 @@
 // Place all the styles related to the producer::recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//recipe#
+
+.recipe-contents {
+	width: 100%;
+}
+
+.images {
+	float: left;
+	padding: 30px 45px;
+}
+
+.recipe-images {
+	width: 400px;
+	height: 300px;
+	overflow: hidden;
+	}
+
+.details {
+	float: right;
+	height: 200px;
+	width: 450px;
+	margin-top: auto;
+}
+
+.recipe-index-line {
+	width: 100%;
+	border-top: 2px solid #EBEBE9;
+	margin: 0 auto;
+}
+
+//recipe#show
+
+.recipe-title {
+	letter-spacing: 0.5em;
+	text-align: center;
+	padding-top: 50px;
+}
+
+.line {
+	width: 80px;
+	border-top: 4px solid #999999;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+
+.recipe-group {
+	margin: 0 auto;
+	width: 70%;
+	height: auto;
+	margin-bottom: 100px;
+}
+
+.recipe-image-box {
+	width: 400px;
+	height: 300px;
+	overflow: hidden;
+	float: left;
+}
+
+.recipe-image {
+	width: 100%;
+}
+
+.recipe-descriptions {
+	float: right;
+	height: 200px;
+	width: 450px;
+	padding: 5px 0;
+	text-align: center;
+}
+
+.recipe-description-line {
+	width: 200px;
+	border-top: 2px solid #EBEBE9;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.recipe-descriptions p {
+	margin-bottom: 2rem;
+}
+
+
+//レシピ編集ボタンのCSS
+.edit-btn {
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.btn-animation-02 {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  background-color: #9ec34b;
+  border: 2px solid #9ec34b;
+  font-size: 16px;
+  color: #9ec34b;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.btn-animation-02 span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-animation-02::before,
+.btn-animation-02::after {
+  content: "";
+  display: block;
+  background-color: #FFF;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: .2s;
+}
+.btn-animation-02::before {
+  left: 0;
+}
+.btn-animation-02::after {
+  right: 0;
+}
+
+.btn-animation-02:hover:before,
+.btn-animation-02:hover:after {
+  width: 0;
+  background-color: #FFF;
+}
+
+.btn-animation-02:hover {
+  color: #FFF;
+}
+
+
+//recipe#show下部のCSS
+.recipe-ingredients-group {
+	width: 100%;
+	background-color: #EBEBE9;
+}

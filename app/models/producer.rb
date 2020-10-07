@@ -6,4 +6,8 @@ class Producer < ApplicationRecord
 
   has_many :recipes, dependent: :destroy
   
+  def recipes
+  	return Post.where(producer_id: self.id)
+  end
+
 end

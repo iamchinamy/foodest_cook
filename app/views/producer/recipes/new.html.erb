@@ -1,5 +1,98 @@
-<div class="row">
-	<div class="col-xs-12">
-		<h1>レシピ投稿画面</h1>
+<h1>レシピ投稿画面</h1>
+
+<!-- レシピ投稿フォーム -->
+<%= form_with model: @recipe, url: producer_recipes_path do |f| %>
+	<div class="form-group row justify-content-md-center">
+		<%= f.label :title, "レシピタイトル", class: "col-sm-2 col-form-label" %>
+		 <div class="col-sm-6">
+			<%= f.text_field :title, autofocus: true, placeholder: '簡単にできる鶏めし', class: "form-control" %>
+		</div>
 	</div>
-</div>
+	<div class="form-group row justify-content-md-center">
+		<%= f.label :description, "レシピの簡単な説明", class: "col-sm-2 col-form-label" %>
+		<div class="col-sm-6">
+			<%= f.text_area :description, placeholder: 'とりとりファームで育ったブランド鶏の胸肉を使った、しっとり美味しい鶏めし。', class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group row justify-content-md-center h-100">
+		<%= f.label :total_time, "おおよその調理時間", class: "col-sm-2 col-form-label" %>
+		<div class="col-sm-6">
+			<%= f.text_field :total_time, placeholder: '30', class: "form-control" %>分
+		</div>
+	</div>
+	<div class="form-group row justify-content-md-center h-100">
+		<label for="recipe_image", class="col-sm-2 col-form-label">レシピ完成イメージ</label>
+		<div class="recipe_image col-sm-3">
+			<%= attachment_image_tag @recipe, :recipe_image, fallback: "no_image.png", size: "200x200", class: "recipe_image" %>
+		</div>
+		<div class="col-sm-3">
+			<%= f.attachment_field :recipe_image, class: "mx-auto", id: 'recipe_image' %>
+		</div>
+	</div>
+	<%= f.fields_for :ingredients do |i| %>
+			<div class="ingredient-box">
+				<div class="ingredients from-group justify-content-md-center row">
+					<div class="row col-sm-4">
+						<%= i.label :item, "材料", class: "col-form-label col-sm-2" %>
+						<div class="col-sm-10">
+							<%= i.text_field :item, placeholder: '鶏胸肉', class: "form-control" %>
+						</div>
+					</div>
+					<div class="row col-sm-4">
+						<%= i.label :amout, "数量", class: "col-form-label col-sm-2" %>
+						<div class="col-sm-10">
+							<%= i.text_field :amount, placeholder: '１枚', class: "form-control" %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group justify-content-md-center row">
+				<input type="button" id="btn1" value="btn1">
+		 		<div id="d1">材料を追加する</div>
+		 	</div>
+	<% end %>
+	<div class="form-group row justify-content-md-center">
+		<%= f.submit "投稿する", class: "btn col-sm-8" %>
+	</div>
+<% end %>
+
+
+<!-- レシピ完成イメージのプレビュー機能 -->
+<script>
+$(function(){
+
+//レシピ完成イメージのプレビュー機能
+    // inputのidから情報の取得
+    $('#recipe_image').on('change', function (e) {
+	// ここから既存の画像のurlの取得
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".recipe_image").attr('src', e.target.result);
+    }
+	// ここまで
+    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+});
+//レシピの材料を複数投稿するためのクローン
+    var ingredient_num = $('.ingredients').length;//ingredientsの要素がいくつあるか数える
+
+    $('#btn1').click(function(){
+    	var input =
+	    	'<div class="ingredients">'
+				+ '<div class="form-group row justify-content-md-center">'
+				+ '<label class="col-sm-2 col-form-label" for="recipe_ingredients_attributes_' + ingredient_num + '_item">材料</label>'
+					+ '<input placeholder="鶏胸肉" type="text" name="recipe[ingredients_attributes][' + ingredient_num + '][item]" id="recipe_ingredients_attributes_' + ingredient_num + '_item" />'
+				+ '</div>'
+				+ '<div class="form-group row justify-content-md-center">'
+					+ '<label class="col-sm-2 col-form-label" for="recipe_ingredients_attributes_' + ingredient_num + '_amout">数量</label>'
+					+ '<input placeholder="１枚" type="text" name="recipe[ingredients_attributes][' + ingredient_num + '][amount]" id="recipe_ingredients_attributes_' + ingredient_num + '_amount" />'
+				+ '</div>'
+			+ '</div>';
+
+		$('.ingredient-box').append(input);
+
+  });
+});
+
+
+
+</script>

@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<% @recipes.each do |recipe| %>
+				<div class="images">
+					<div class="recipe-images">
+						<%= attachment_image_tag(recipe, :recipe_image, fallback: "no_image.png", format: "jpg", class: "recipe-image") %>
+					</div>
+				</div>
+				<div class="details">
+					<div>
+						<%= link_to producer_recipe_path(recipe.id) do %>
+							<span><%= recipe.title %></span>
+						<% end %>
+					</div>
+					<div>
+						<p><%= recipe.description %></p>
+					</div>
+				</div>
+				<div class="recipe-index-line"></div>
+		<% end %>
+	</div>
+</div>
