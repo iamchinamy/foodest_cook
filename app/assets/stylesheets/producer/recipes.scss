@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-//recipe#
+//recipe#index
 
 .recipe-contents {
 	width: 100%;
@@ -33,8 +33,10 @@
 	margin: 0 auto;
 }
 
-//recipe#show
 
+
+//recipe#show
+//recipeイメージ・説明文箇所
 .recipe-title {
 	letter-spacing: 0.5em;
 	text-align: center;
@@ -87,6 +89,8 @@
 }
 
 
+
+//ingredients#show
 //レシピ編集ボタンのCSS
 .edit-btn {
 	text-align: center;
@@ -142,8 +146,19 @@
 }
 
 
-//recipe#show下部のCSS
+
+//recipes#show
+//材料
 .recipe-ingredients-group {
 	width: 100%;
 	background-color: #EBEBE9;
+	text-align: center;
+}
+
+.ingredients-item {
+	padding-bottom: 50px;
+}
+
+.ingredients-item p {
+	display: inline-block;
 }
