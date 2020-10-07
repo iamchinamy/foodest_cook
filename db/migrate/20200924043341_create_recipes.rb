@@ -6,7 +6,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
     	t.string :recipe_image_id
     	t.string :title
     	t.text :description
-    	t.integer :total_time
+    	t.string :total_time
 
       t.timestamps
     end

@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_110737) do
     t.string "recipe_image_id"
     t.string "title"
     t.text "description"
-    t.integer "total_time"
+    t.string "total_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
