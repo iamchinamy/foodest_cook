@@ -10,21 +10,15 @@
 	</div>
 	<div class="form-group row justify-content-md-center">
 		<%= f.label :description, "レシピの簡単な説明", class: "col-sm-2 col-form-label" %>
-		<div class="col-sm-6">
-			<%= f.text_area :description, placeholder: 'とりとりファームで育ったブランド鶏の胸肉を使った、しっとり美味しい鶏めし。', class: "form-control" %>
-		</div>
+		<%= f.text_area :description, placeholder: 'とりとりファームで育ったブランド鶏の胸肉を使った、しっとり美味しい鶏めし。', class: "form-control col-sm-6" %>
 	</div>
 	<div class="form-group row justify-content-md-center h-100">
 		<%= f.label :total_time, "おおよその調理時間", class: "col-sm-2 col-form-label" %>
-		<div class="col-sm-6">
-			<%= f.text_field :total_time, placeholder: '30', class: "form-control" %>分
-		</div>
+		<%= f.text_field :total_time, placeholder: '30', class: "form-control col-sm-6" %>分
 	</div>
 	<div class="form-group row justify-content-md-center h-100">
 		<label for="recipe_image", class="col-sm-2 col-form-label">レシピ完成イメージ</label>
-		<div class="recipe_image col-sm-3">
-			<%= attachment_image_tag @recipe, :recipe_image, fallback: "no_image.png", size: "200x200", class: "recipe_image" %>
-		</div>
+		<%= attachment_image_tag @recipe, :recipe_image, fallback: "no_image.png", size: "200x200", class: "recipe_image" %>
 		<div class="col-sm-3">
 			<%= f.attachment_field :recipe_image, class: "mx-auto", id: 'recipe_image' %>
 		</div>
@@ -54,6 +48,14 @@
 	<div class="form-group row justify-content-md-center">
 		<%= f.submit "投稿する", class: "btn col-sm-8" %>
 	</div>
+
+	<%= f.fields_for :ingredients do |i| %>
+		<div>
+			<div>
+				<div></div>
+			</div>
+		</div>
+	<% end %>
 <% end %>
 
 
