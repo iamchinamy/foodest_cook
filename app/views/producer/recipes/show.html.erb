@@ -53,7 +53,11 @@
 <div class="recipe-method-group">
 	<h2 class="recipe-title">作り方</h2>
 	<div class="line"></div>
-	<% @steps each do |step| %>
-		
-	<% end %>
+	<div class="recipe-method-content">
+		<% i = 0 %>
+		<% @steps.each do |step| %>
+			<span><%= i += 1 %>．</span>
+			<p><%= step.method %></p><br>
+		<% end %>
+	</div>
 </div>
