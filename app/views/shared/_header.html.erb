@@ -1,6 +1,9 @@
-<!-- ブートストラップじゃない方がいいかも -->
 <nav class="navbar navbar-expand-md">
-	<a class="navbar-brand" href="#">FOODest Cook</a>
+
+	<%= link_to root_path do %>
+    	<img class = "logo", src="/assets/logo.png", width="70px", height="70px">
+    <% end %>
+
 	<div class="collapse navbar-collapse justify-content-center">
 		<form class="form-inline">
 			<input class="form-control" type="search" placeholder="食材やキーワード">

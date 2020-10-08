@@ -17,7 +17,7 @@
 		<div class="total-time">
 			<h5>調理時間</h5>
 			<div class="recipe-description-line"></div>
-			<p><%= @recipe.total_time %>　分</p>
+			<p><%= @recipe.total_time %></p>
 		</div>
 		<div class="poster">
 			<h5>投稿者</h5>
@@ -53,4 +53,11 @@
 <div class="recipe-method-group">
 	<h2 class="recipe-title">作り方</h2>
 	<div class="line"></div>
+	<div class="recipe-method-content">
+		<% i = 0 %>
+		<% @steps.each do |step| %>
+			<span><%= i += 1 %>．</span>
+			<p><%= step.method %></p><br>
+		<% end %>
+	</div>
 </div>

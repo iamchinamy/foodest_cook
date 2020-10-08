@@ -12,7 +12,6 @@ $(function(){
     reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
 });
 //レシピの材料を複数投稿するためのクローン
-    // var ingredient_num = $('.ingredients').length;//ingredientsの要素がいくつあるか数える
     var ingredient_num = 0
     console.log(ingredient_num)//chromeディペッロッパーツールに表示させる
     $('#btn1').click(function(){
@@ -36,4 +35,23 @@ $(function(){
 
 		$('.ingredient-box').append(input);
   });
+
+    var step_num = 0
+    console.log(step_num)
+    $('#btn2').click(function(){
+    	step_num ++
+	    console.log(step_num)
+    	var input =
+			 '<div class="steps">'
+				+ '<div class="from-group justify-content-md-center row">'
+					+ '<label class="col-sm-2 col-form-label" for="recipe_steps_attributes_' + step_num + '_method">作り方</label>'
+					+ '<div class="col-sm-6">'
+						+ '<input placeholder="野菜を切る" class="form-control" type="text" name="recipe[steps_attributes][' + step_num + '][method]" id="recipe_steps_attributes_' + step_num + '_method" />'
+					+ '</div>'
+				+ '</div>'
+			+ '</div>'
+
+		$('.step-box').append(input);
+	});
+
 });
