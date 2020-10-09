@@ -1,34 +1,48 @@
 <div class="container">
-	<h1>生産者登録情報変更</h1>
-	<div class="row">
-		<%= form_with model: @producer, url: producer_home_path, local: true do |f| %>
-			<table>
-				<tr>
-					<th><%= f.label :email, "メールアドレス", class: "col-form-label" %></th>
-					<td><%= f.text_field :title, autofocus: true %></td>
-				</tr>
-				<tr>
-					<th><%= f.label :corporate_name, "団体名", class: "col-form-label" %></th>
-					<td><%= f.text_field :corporate_name %></td>
-				</tr>
-				<tr>
-					<th><%= f.label :representative, "代表者様名", class: "col-form-label" %></th>
-					<td><%= f.text_field :representative %></td>
-				</tr>
-				<tr>
-					<th><%= f.label :post_code, "郵便番号", class: "col-form-label" %></th>
-					<td><%= f.text_field :post_code %></td>
-				</tr>
-				<tr>
-					<th><%= f.label :address, "住所", class: "col-form-label" %></th>
-					<td><%= f.text_field :address %></td>
-				</tr>
-				<tr>
-					<th><%= f.label :phone_number, "電話番号", class: "col-form-label" %></th>
-					<td><%= f.text_field :phone_number %></td>
-				</tr>
-			</table>
-		<%= f.submit "編集内容を保存する", class: 'customers-btn' %>
-		<% end %>
-	</div>
+  <div class="edit-form">
+    <h2>登録情報変更</h2>
+    <%= form_with model: @producer, url: producer_home_path, local: true do |f| %>
+      <table class="table">
+        <tr>
+          <th>事業団体名</th>
+          <td><%= f.text_field :corporate_name, autofocus: true, placeholder: 'ふーですと農園' %></td>
+        </tr>
+        <tr>
+          <th>代表者さま氏名</th>
+          <td><%= f.text_field :representative, placeholder: '山田太郎' %></td>
+        </tr>
+        <tr>
+          <th>プロフィール写真</th>
+          <td><%= attachment_image_tag @producer, :producer_image, fallback: "/images/no_image.png", class: "mypage-image" %>
+            <%= f.attachment_field :producer_image, id: 'producer-image' %>
+          </td>
+        </tr>
+        <tr>
+          <th>自己紹介文</th>
+          <td><%= f.text_area :introduction, placeholder: '東京都の青空の下で、果樹園を営んでいます。四季折々のフルーツを皆様にお届けしています。',
+           class: "intro-sentence" %></td>
+        </tr>
+        <tr>
+          <th>所在地郵便番号（ハイフンなし）</th>
+          <td><%= f.text_field :post_code, placeholder: '0005555' %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= f.text_field :address, placeholder: '東京都港区芝公園4-2-8' %></td>
+        </tr>
+        <tr>
+          <th>電話番号（ハイフンなし）</th>
+          <td><%= f.text_field :phone_number, placeholder: '09022225555' %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= f.email_field :email, autocomplete: "email" %></td>
+        </tr>
+      </table>
+    <div class="edit-btn-box">
+      <%= f.submit "変更する", class: "btn btn-outline-info edit-btn" %>
+    </div>
+    <% end %>
+  </div>
+
 </div>

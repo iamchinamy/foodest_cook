@@ -1,1 +1,50 @@
 <h1>Topぺーじ</h1>
+
+<div id="top-slider">
+	<div class="top-image-1"></div>
+	<div class="top-image-2"></div>
+	<div class="top-image-3"></div>
+</div>
+
+<div class="introduction">
+	<div class="content coloured">
+		<h3 class="title">Foodest Cookとは？</h3>
+		<div class="line"></div>
+		<p>Foodest Cookはレシピサイトです。<br>
+			レシピを投稿していただく方は、私たちの食卓を支える<br>
+			全国の生産者さまです。<br>
+			農業・畜産業・漁業など<br>
+			生産者の方だからこそ知っている<br>
+			おいしい食べ方を知る。<br>
+			そのための、レシピサイトです。
+		</p>
+	</div>
+</div>
+
+<div class="producer-container">
+	<div class="container">
+		<h3 class="title">生産者のみなさま</h3>
+		<div class="line"></div>
+		<% @random.each do |producer| %>
+			<div class="producer-group">
+				<%= attachment_image_tag producer, :producer_image, fallback: "/images/no_image.png", class: "producer-image" %>
+				<div class="producer-intro-box">
+					<div class="producer-intro-content">
+						<%= link_to producer_producer_path(producer.id) do %>
+							<%= producer.corporate_name %>
+						<% end %>
+						<p>
+							<% if producer.introduction.nil? %>
+								<%= producer.introduction %>
+							<% else %>
+								<%=safe_join(producer.introduction.split("\n"),tag(:br))%>
+							<% end %>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="producer-container-line"></div>
+			<div class="clearfix"></div>
+		<% end %>
+	</div>
+</div>

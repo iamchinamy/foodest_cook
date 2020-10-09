@@ -1,0 +1,31 @@
+//producers#index
+
+.recipe-contents {
+	width: 100%;
+}
+
+.images {
+	float: left;
+	padding: 30px 45px;
+}
+
+.producer-images {
+	width: 400px;
+	height: 300px;
+	object-fit: cover;
+	object-position: center;
+	}
+
+.details {
+	float: right;
+	height: 200px;
+	width: 450px;
+	margin-top: auto;
+}
+
+.producer-index-line {
+	width: 100%;
+	border-top: 2px solid #EBEBE9;
+	margin: 0 auto;
+}
+

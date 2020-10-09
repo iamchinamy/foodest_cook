@@ -1,0 +1,20 @@
+<div class="container">
+	<h1>生産者の皆様</h1>
+	<div class="row">
+		<% @producers.each do |producer| %>
+				<div class="images">
+					<div class="producer-images">
+						<%= attachment_image_tag(producer, :producer_image, fallback: "/images/no_image.png", format: "jpg", class: "producer-image") %>
+					</div>
+				</div>
+				<div class="details">
+					<div>
+						<%= link_to producer_producer(producer.id) do %>
+							<span><%= producer.corporate_name %></span>
+						<% end %>
+					</div>
+				</div>
+				<div class="producer-index-line"></div>
+		<% end %>
+	</div>
+</div>

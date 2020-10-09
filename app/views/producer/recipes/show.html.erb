@@ -3,16 +3,37 @@
 </h2>
 <div class="line"></div>
 
+<div class="like-btn-container">
+	<h5 class="like-btn">
+		<% if producer_signed_in? %>
+			<% if @recipe.liked_by?(current_producer) %>
+				<%= link_to producer_recipe_likes_path(@recipe), method: :delete do %>
+					<i class="fas fa-heart" style="color: red;"></i>
+				<% end %>
+			<% else %>
+				<%= link_to producer_recipe_likes_path(@recipe), method: :post do %>
+					<i class="far fa-heart" style="color: red;"></i>
+				<% end %>
+			<% end %>
+		<% end %>
+		<%= @recipe.likes.count %>
+	</h5>
+</div>
+
 <div class="recipe-group">
-	<div class="recipe-image-box">
-		<%= attachment_image_tag(@recipe, :recipe_image, fallback: "no_image.png", format: "jpg", class: "recipe-image") %>
-	</div>
+	<%= attachment_image_tag(@recipe, :recipe_image, fallback: "/images/no_image.png", format: "jpg", class: "recipe-image") %>
 
 	<div class="recipe-descriptions">
 		<div class="recipe-description">
 			<h5>レシピの説明</h5>
 			<div class="recipe-description-line"></div>
-			<p><%= @recipe.description %></p>
+			<p>
+				<% if @recipe.description.nil? %>
+					<%= @recipe.description %>
+				<% else %>
+					<%=safe_join(@recipe.description.split("\n"),tag(:br))%>
+				<% end %>
+			</p>
 		</div>
 		<div class="total-time">
 			<h5>調理時間</h5>
@@ -26,11 +47,19 @@
 		</div>
 	</div>
 	<div class="clearfix"></div>
+
+	<div class="poster-group">
+		<%= link_to producer_producer_path(@recipe.producer.id) do %>
+			<%= attachment_image_tag @recipe.producer, :producer_image, fallback: "/images/no_image.png", class: "poster-image" %>
+			<%= @recipe.producer.corporate_name %>　さんのレシピ
+		<% end %>
+	</div>
+
 </div>
 
 <!-- 投稿者のみが編集できるようにする -->
 <% if @producer.id == current_producer.id %>
-	<div class="edit-btn">
+	<div class="recipe-edit-btn">
 		<%= link_to edit_producer_recipe_path(@recipe.id), class: "btn-animation-02" do %>
 			<span>レシピを修正</span>
 		<% end %>

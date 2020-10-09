@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :customers, controllers: {
-  	sessions: 'customers/sessions',
-  	registrations: 'customers/registrations',
-  	passwords: 'customers/passwords'
-  }
   devise_for :producers, controllers: {
   	sessions: 'producers/sessions',
   	registrations: 'producers/registrations',
@@ -15,13 +10,15 @@ Rails.application.routes.draw do
   get 'about' => 'homes#about'
 
   namespace :producer do
-    resources :products
+    resources :producers, only: [:index, :show]
     resources :homes, only: [:edit, :update] do
       collection do
         get 'my_page' => 'homes#my_page'
       end
     end
-    resources :recipes
+    resources :recipes do
+      resource :likes, only: [:create, :destroy]
+    end
   end
 
 

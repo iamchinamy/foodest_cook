@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md">
 
 	<%= link_to root_path do %>
-    	<img class = "logo", src="/assets/logo.png", width="70px", height="70px">
+    	<img class = "logo", src="/images/logo.png", width="70px", height="70px">
     <% end %>
 
 	<div class="collapse navbar-collapse justify-content-center">
@@ -10,21 +10,9 @@
 			<button class="btn btn-outline" type="submit">レシピを探す</button>
 		</form>
 	</div>
-	<div class="collapse navbar-collapse justify-content-end">
+	<div class="collapse navbar-collapse">
 		<ul class="navbar-nav">
-			<% if customer_signed_in? %>
-				<li class="nav-item">
-					<a href="#">マイページ</a>
-				</li>
-				<li class="nav-item">
-					<a href="#">カート</a>
-				</li>
-				<li class="nav-item">
-					<%= link_to destroy_customer_session_path, method: :delete do %>
-						<span>ログアウト</span>
-					<% end %>
-				</li>
-			<% elsif producer_signed_in? %>
+			<% if producer_signed_in? %>
 				<li class="nav-item">生産者さまページ</li>
 				<li class="nav-item">
 					<%= link_to my_page_producer_homes_path do %>
@@ -43,16 +31,8 @@
 				</li>
 			<% else %>
 				<li class="nav-item">
-					<a href="#">無料会員登録</a>
-				</li>
-				<li class="nav-item">
-					<%= link_to new_producer_session_path do %>
-						<span>生産者さまログイン</span>
-					<% end %>
-				</li>
-				<li class="nav-itme">
-					<%= link_to new_customer_session_path do %>
-						<span>一般会員さまログイン</span>
+					<%= link_to new_producer_registration_path do %>
+						<span><i class="fas fa-user-plus"></i>無料会員登録</span>
 					<% end %>
 				</li>
 			<% end %>

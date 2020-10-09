@@ -1,11 +1,9 @@
 <div class="container">
+	<h3 class="title">投稿されたレシピ</h3>
 	<div class="row">
 		<% @recipes.each do |recipe| %>
-				<div class="images">
-					<div class="recipe-images">
-						<%= attachment_image_tag(recipe, :recipe_image, fallback: "no_image.png", format: "jpg", class: "recipe-image") %>
-					</div>
-				</div>
+			<div class="index-recipe-container">
+				<%= attachment_image_tag(recipe, :recipe_image, fallback: "/images/no_image.png", format: "jpg", class: "index-recipe-image") %>
 				<div class="details">
 					<div>
 						<%= link_to producer_recipe_path(recipe.id) do %>
@@ -16,7 +14,8 @@
 						<p><%= recipe.description %></p>
 					</div>
 				</div>
-				<div class="recipe-index-line"></div>
+			</div>
+			<div class="recipe-index-line"></div>
 		<% end %>
 	</div>
 </div>

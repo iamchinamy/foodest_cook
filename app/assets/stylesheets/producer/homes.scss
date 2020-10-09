@@ -1,3 +1,74 @@
-// Place all the styles related to the producer::homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//my_page
+.informations {
+	padding: 50px 0;
+}
+
+.mypage-content {
+	margin-top: 15px;
+}
+
+.mypage-title {
+	display: inline-block;
+}
+
+.mypage-edit-btn {
+	display: inline-block;
+	margin-bottom: 0.8rem;
+	margin-left: 20px;
+}
+
+.intro-sentence {
+	width: 50%;
+}
+
+.mypage-image {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	object-position: center;
+}
+
+
+
+///お気に入りレシピ一覧
+.liked-recipe {
+	width: 100%;
+}
+
+.liked-recipe-container {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: center;
+}
+
+.liked-recipe-group {
+	border: solid 2px #EBEBE9;
+	padding: 0.5rem;
+	margin: 0 0.5rem;
+}
+
+.liked-recipe-image {
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	object-position: center;
+}
+
+
+
+
+//producer#homes(edit)
+.edit-form {
+	padding: 50px 0;
+}
+
+.edit-btn-box {
+	text-align: center;
+	margin-top: 25px;
+}
+
+.edit-btn {
+	width: 30%;
+}

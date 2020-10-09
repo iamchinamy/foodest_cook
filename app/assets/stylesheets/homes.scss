@@ -1,3 +1,124 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//共通箇所
+.title {
+	letter-spacing: 0.2rem;
+	font-family: 'Sawarabi Mincho', sans-serif;
+	text-align: center;
+}
+
+
+
+//jquery部分
+.top-slider {
+	width: 80%;
+	height: 400px;
+	margin: 0 auto;
+	padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-slider div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e45151;
+}
+
+.top-image-1 {
+	background-image: url(/images/agriculture.jpg);
+	background-size: cover;
+	background-repeat:  no-repeat;
+	background-position: center;
+}
+
+.top-image-2 {
+	background-image: url(/images/fishery.jpg);
+	background-size: cover;
+	background-repeat:  no-repeat;
+	background-position: center;
+}
+
+.top-image-3 {
+	background-image: url(/images/ranch.jpg);
+	background-size: cover;
+	background-repeat:  no-repeat;
+	background-position: center;
+}
+
+.content {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	text-align: center;
+	background-color: #EBEBE9;
+	padding: 100px 0;
+}
+.content p {
+	letter-spacing: 0.2rem;
+	line-height: 3rem;
+}
+
+
+
+//生産者紹介
+.producer-container {
+	padding: 100px 0;
+}
+
+.producer-group {
+	width: 100%;
+	padding: 20px 0;
+	height: 400px;
+}
+
+.producer-image {
+	width: 500px;
+	height: 350px;
+	object-fit: cover;
+	object-position: center;
+	float: left;
+}
+
+.producer-intro-box {
+	float: right;
+	width: 500px;
+	height: 350px;
+	display: table;
+}
+
+.producer-intro-content {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.producer-intro-content a {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	font-size: 23px;
+	margin-bottom: 10px;
+	display: inline-block;
+  	transition: .3s;
+  	-webkit-transform: scale(1);
+  	transform: scale(1);
+}
+
+.producer-intro-content a:hover{
+	-webkit-transform: scale(1.1);
+  	transform: scale(1.1);
+}
+
+.producer-container-line {
+	width: 100%;
+	border-top: 2px solid #EBEBE9;
+	margin: 20px auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

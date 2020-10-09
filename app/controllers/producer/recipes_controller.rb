@@ -1,6 +1,6 @@
 class Producer::RecipesController < ApplicationController
 
-	before_action :authenticate_producer!
+	before_action :authenticate_producer!, only: [:new, :create, :edit, :update]
 
 	def index
 		@recipes = Recipe.all
@@ -11,6 +11,7 @@ class Producer::RecipesController < ApplicationController
 		@producer = @recipe.producer
 		@ingredients = @recipe.ingredients.all
 		@steps = @recipe.steps.all
+		@like = Like.new
 	end
 
 	def edit

@@ -1,0 +1,14 @@
+<div class="container">
+	<h2 class="producer-title">
+	<%= @producer.corporate_name %>
+	</h2>
+	<div class="producer-group">
+		<div class="producer-image-box">
+			<%= attachment_image_tag(@producer, :producer_image, fallback: "/images/no_image.png", format: "jpg", class: "producer-image") %>
+		</div>
+
+		<div class="producer-descriptions">
+			
+		</div>
+	</div>
+</div>
