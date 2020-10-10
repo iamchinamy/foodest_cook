@@ -1,3 +1,238 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//共通箇所
+.title {
+	letter-spacing: 0.2rem;
+	font-family: 'Sawarabi Mincho', sans-serif;
+	text-align: center;
+}
+
+
+
+//jquery部分
+.sliderArea {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 25px;
+    overflow: hidden;
+}
+.sliderArea.w300 {
+    max-width: 300px;
+}
+.slick-slide {
+    margin: 0 5px;
+}
+.slick-slide img {
+    width: 100%;
+    height: auto;
+}
+.slick-prev, .slick-next {
+    z-index: 1;
+}
+.slick-prev:before, .slick-next:before {
+    color: #000;
+}
+.slick-slide {
+    transition: all ease-in-out .3s;
+    opacity: .2;
+}
+.slick-active {
+    opacity: 1;
+}
+.slick-current {
+    opacity: 1;
+}
+.thumb {
+    margin: 20px 0 0;
+}
+.thumb .slick-slide {
+    cursor: pointer;
+}
+.thumb .slick-slide:hover {
+    opacity: .7;
+}
+.full-screen .slick-list {
+    overflow: visible;
+}
+.full-screen.slider {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+
+.introduction {
+	background-color: #EBEBE9;
+	padding: 180px 0 100px 0;
+}
+
+.content {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	text-align: center;
+	padding-top: 50px;
+}
+.content p {
+	letter-spacing: 0.2rem;
+	line-height: 3rem;
+}
+
+
+
+//中間部分
+.middle-container {
+	display:flex;
+	flex-wrap: wrap;
+	border-bottom: 1px solid #EBEBE9;
+}
+
+
+//ランキング
+.ranking-container {
+	width: 60%;
+	padding: 100px;
+	padding-left: 150px;
+	text-align: center;
+}
+
+.ranking-item {
+	display: inline-block;
+	padding: 20px;
+}
+
+.ranking-item p {
+	border: solid 1px #212529;
+	padding: 5px 0;
+}
+
+.ranking-recipe-image:nth-child(1) {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center;
+	margin-bottom: 10px;
+}
+
+.more-recipe {
+	color: #E2CC6C;
+	border: 10px dotted #E2CC6C;
+	border-radius: 10%;
+	padding: 15px;
+	margin-top: 15px;
+}
+
+.more-recipes-btn {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	font-size: 23px;
+	margin-bottom: 10px;
+	display: inline-block;
+  	transition: .3s;
+  	-webkit-transform: scale(1);
+  	transform: scale(1);
+}
+
+.more-recipes-btn:hover{
+	-webkit-transform: scale(1.1);
+  	transform: scale(1.1);
+}
+
+
+
+
+
+//タグ
+.tag-container {
+	width: 40%;
+}
+
+
+
+//生産者紹介
+.producer-container {
+	padding: 100px 0;
+}
+
+.producer-group {
+	width: 100%;
+	padding: 20px 0;
+	height: 400px;
+}
+
+.producer-image {
+	width: 500px;
+	height: 350px;
+	object-fit: cover;
+	object-position: center;
+	float: left;
+}
+
+.producer-intro-box {
+	float: right;
+	width: 500px;
+	height: 350px;
+	display: table;
+}
+
+.producer-intro-content {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.producer-intro-content a {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	font-size: 23px;
+	margin-bottom: 10px;
+	display: inline-block;
+  	transition: .3s;
+  	-webkit-transform: scale(1);
+  	transform: scale(1);
+}
+
+.producer-intro-content a:hover{
+	-webkit-transform: scale(1.1);
+  	transform: scale(1.1);
+}
+
+.producer-container-line {
+	width: 100%;
+	border-top: 2px solid #EBEBE9;
+	margin: 20px auto;
+}
+
+.more-producer {
+	color: #E2CC6C;
+	border: 10px dotted #E2CC6C;
+	border-radius: 10%;
+	padding: 15px;
+	margin-top: 15px;
+}
+
+.more-producer-btn {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	font-size: 23px;
+	margin-bottom: 10px;
+	display: inline-block;
+  	transition: .3s;
+  	-webkit-transform: scale(1);
+  	transform: scale(1);
+}
+
+.more-producer-btn:hover{
+	-webkit-transform: scale(1.1);
+  	transform: scale(1.1);
+}
+
+.more-producer-container {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

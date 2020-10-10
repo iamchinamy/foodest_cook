@@ -1,0 +1,28 @@
+<div class="all-contents">
+	<div class="container">
+		<h3 class="title">生産者の皆様</h3>
+		<div class="line"></div>
+		<div class="index-producer-container">
+			<% @producers.each do |producer| %>
+				<div class="index-producer-item">
+					<%= attachment_image_tag(producer, :producer_image, fallback: "/images/no_image.png", format: "jpg", class: "index-producer-image") %>
+					<div class="producer-details">
+						<div>
+							<%= link_to producer_producer_path(producer.id) do %>
+								<h5 class="title"><%= producer.corporate_name %></h5>
+							<% end %>
+						</div>
+						<div class="producer-introduction">
+							<% if producer.introduction.nil? %>
+								<%= producer.introduction %>
+							<% else %>
+								<%=safe_join(producer.introduction.split("\n"),tag(:br))%>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="producer-index-line"></div>
+			<% end %>
+		</div>
+	</div>
+</div>

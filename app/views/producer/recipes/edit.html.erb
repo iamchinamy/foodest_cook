@@ -1,0 +1,89 @@
+<div class="all-contents">
+	<h3 class="title">レシピ編集画面</h3>
+	<div class="shared-group">
+
+		<!-- レシピ投稿フォーム -->
+		<%= form_with model: @recipe, url: producer_recipe_path do |f| %>
+		<%= render 'shared/error', model: f.object %>
+		
+			<div class="form-group row justify-content-md-center">
+				<%= f.label :title, "タイトル", class: "col-sm-2 col-form-label" %>
+				 <div class="col-sm-6">
+					<%= f.text_field :title, autofocus: true, placeholder: '簡単にできる鶏めし', class: "form-control" %>
+				</div>
+			</div>
+			<div class="form-group row justify-content-md-center">
+				<%= f.label :description, "簡単な説明", class: "col-sm-2 col-form-label" %>
+				<div class="col-sm-6">
+					<%= f.text_area :description, placeholder: 'とりとりファームで育ったブランド鶏の胸肉を使った、しっとり美味しい鶏めし。', class: "form-control" %>
+				</div>
+			</div>
+			<div class="form-group row justify-content-md-center h-100">
+				<%= f.label :total_time, "おおよその調理時間", class: "col-sm-2 col-form-label" %>
+				<div class="col-sm-6">
+					<%= f.select :total_time,
+					 [["10分", "10分"], ["20分", "20分"], ["30分", "30分"], ["40分", "40分"], ["50分", "50分"], ["1時間", "1時間"],
+					  ["1時間10分", "1時間10分"], ["1時間20分", "1時間20分"], ["1時間30分", "1時間30分"], ["1時間40分", "1時間40分"], ["1時間50分", "1時間50分"], ["2時間", "2時間"]],
+					  include_blank: "調理時間を選択してください" , class: "form-control, required: true" %>
+				</div>
+			</div>
+			<div class="form-group row justify-content-md-center h-100">
+				<label for="recipe_image", class="col-sm-2 col-form-label">イメージ</label>
+				<div class="recipe_image col-sm-3">
+					<%= attachment_image_tag(@recipe, :recipe_image, fallback: "no_image.png", size: "200x200", class: "recipe_image") %>
+				</div>
+				<div class="col-sm-3">
+					<%= f.attachment_field :recipe_image, class: "mx-auto", id: 'recipe_image' %>
+				</div>
+			</div>
+
+			<!-- 材料投稿 -->
+			<div class="posting-form">
+				<%= f.fields_for :ingredients do |i| %>
+					<div class="ingredient-box">
+						<div class="ingredients from-group justify-content-md-center row">
+							<div class="row col-sm-4">
+								<%= i.label :item, "材料", class: "col-form-label col-sm-2" %>
+								<div class="col-sm-10">
+									<%= i.text_field :item, placeholder: '鶏胸肉', class: "form-control" %>
+								</div>
+							</div>
+							<div class="row col-sm-4">
+								<%= i.label :amout, "数量", class: "col-form-label col-sm-2" %>
+								<div class="col-sm-10">
+									<%= i.text_field :amount, placeholder: '１枚', class: "form-control" %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group justify-content-md-center row new-recipe-btn">
+						<input type="button" id="btn1" value="材料を追加する">
+				 	</div>
+				<% end %>
+			</div>
+
+			<!-- ステップ投稿 -->
+			<div class="posting-form">
+				<%= f.fields_for :steps do |s| %>
+					<div class="step-box">
+						<div class="steps">
+							<div class="from-group justify-content-md-center row">
+								<%= s.label :method, "作り方", class: "col-sm-2 col-form-label" %>
+								<div class="col-sm-6">
+									<%= s.text_field :method, placeholder: '野菜を切る', class: "form-control" %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group justify-content-md-center row new-recipe-btn">
+						<input type="button" id="btn2" value="ステップを追加する">
+				 	</div>
+				<% end %>
+			</div>
+
+			<div class="form-group row justify-content-md-center">
+				<%= f.submit "投稿する", class: "btn col-sm-8" %>
+			</div>
+		<% end %>
+	</div>
+</div>

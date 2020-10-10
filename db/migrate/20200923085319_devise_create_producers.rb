@@ -37,6 +37,7 @@ class DeviseCreateProducers < ActiveRecord::Migration[5.2]
       t.string :post_code
       t.string :address
       t.string :phone_number
+      t.string :producer_image_id
       t.timestamps null: false
     end
 

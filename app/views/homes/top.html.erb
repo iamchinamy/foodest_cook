@@ -1,2 +1,78 @@
-<h1>topページ</h1>
+<div class="introduction">
 
+	<div class="sliderArea">
+    <div class="full-screen slider">
+      <div><img src="/images/lettuce.jpg" alt="125naroom"></div>
+      <div><img src="/images/fishery.jpg" alt="125naroom"></div>
+      <div><img src="/images/ranch.jpg" alt="125naroom"></div>
+      <div><img src="/images/agriculture.jpg" alt="125naroom"></div>
+      <div><img src="/images/fishery2.jpg" alt="125naroom"></div>
+    </div>
+  </div>
+
+	<div class="content">
+		<h3 class="title">Foodest Cookとは？</h3>
+		<div class="line"></div>
+		<p>Foodest Cookはレシピサイトです。<br>
+			レシピを投稿していただく方は、私たちの食卓を支える<br>
+			全国の生産者さまです。<br>
+			農業・畜産業・漁業など<br>
+			生産者の方だからこそ知っている<br>
+			おいしい食べ方を知る。<br>
+			そのための、レシピサイトです。
+		</p>
+	</div>
+</div>
+
+<div class="middle-container">
+	<div class="ranking-container">
+		<h3 class="title">ランキング</h3>
+		<% @all_ranks.each.with_index(1) do |recipe, i| %>
+			<div class="ranking-item">
+				<p>第<%= i %>位</p>
+				<%= link_to producer_recipe_path(recipe.id) do %>
+					<%= attachment_image_tag recipe, :recipe_image, fallback: "/images/no_image.png", class: "ranking-recipe-image" %><br>
+					<%= recipe.title %>
+				<% end %>
+			</div>
+		<% end %>
+		<%= link_to producer_recipes_path, class: "more-recipes-btn" do %>
+			<h4 class="more-recipe">もっとレシピをみる</h4>
+		<% end %>
+	</div>
+
+	<div class="tag-container"></div>
+</div>
+
+<div class="producer-container">
+	<div class="container">
+		<h3 class="title">生産者のみなさま</h3>
+		<div class="line"></div>
+		<% @random.each do |producer| %>
+			<div class="producer-group">
+				<%= attachment_image_tag producer, :producer_image, fallback: "/images/no_image.png", class: "producer-image" %>
+				<div class="producer-intro-box">
+					<div class="producer-intro-content">
+						<%= link_to producer_producer_path(producer.id) do %>
+							<%= producer.corporate_name %>
+						<% end %>
+						<p>
+							<% if producer.introduction.nil? %>
+								<%= producer.introduction %>
+							<% else %>
+								<%=safe_join(producer.introduction.split("\n"),tag(:br))%>
+							<% end %>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="producer-container-line"></div>
+			<div class="clearfix"></div>
+		<% end %>
+		<div class="more-producer-container">
+			<%= link_to producer_producers_path, class: "more-producer-btn" do %>
+				<h4 class="more-producer">もっと生産者さんをみる</h4>
+			<% end %>
+		</div>
+	</div>
+</div>

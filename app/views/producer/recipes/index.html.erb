@@ -1,0 +1,21 @@
+<div class="all-contents">
+	<div class="container">
+		<h3 class="title">すべてのレシピ</h3>
+		<div class="row">
+			<% @recipes.each do |recipe| %>
+				<div class="index-recipe-container">
+					<%= link_to producer_recipe_path(recipe.id) do %>
+						<%= attachment_image_tag(recipe, :recipe_image, fallback: "/images/no_image.png", format: "jpg", class: "index-recipe-image") %>
+						<div class="details">
+							<h5 class="title"><%= recipe.title %></h5>
+							<div>
+								<p><%= recipe.description %></p>
+							</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="recipe-index-line"></div>
+			<% end %>
+		</div>
+	</div>
+</div>
