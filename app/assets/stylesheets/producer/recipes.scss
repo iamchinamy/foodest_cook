@@ -46,6 +46,28 @@
 
 
 //recipe#new
+.new-recipe-container {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.form-container {
+	display: flex;
+}
+
+.form-item {
+	padding: 5px 0;
+	width: 100%;
+}
+
+.form-title {
+	width: 40%;
+}
+
+.form-content {
+	width: 50%;
+}
+
 .new-recipe-image {
 	width: 300px;
 	height: 200px;
@@ -60,6 +82,7 @@
 .new-recipe-btn {
 	margin: 20px 0;
 }
+
 
 
 

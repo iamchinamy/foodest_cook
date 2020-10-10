@@ -1,8 +1,11 @@
 <div class="all-contents">
 	<h3 class="title">レシピ編集画面</h3>
 	<div class="shared-group">
+
 		<!-- レシピ投稿フォーム -->
 		<%= form_with model: @recipe, url: producer_recipe_path do |f| %>
+		<%= render 'shared/error', model: f.object %>
+		
 			<div class="form-group row justify-content-md-center">
 				<%= f.label :title, "タイトル", class: "col-sm-2 col-form-label" %>
 				 <div class="col-sm-6">

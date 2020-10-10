@@ -13,6 +13,11 @@ class Recipe < ApplicationRecord
 	has_many :likes, dependent: :destroy
 	has_many :liked_producers, through: :likes, source: :producer
 
+	validates :title, presence: true
+	validates :description, length: {maximum: 56, minimum: 2}
+	validates :total_time, presence: true
+	
+
 	# いいねしてるかどうか
 	def liked_by?(producer)
 		likes.where(producer_id: producer.id).exists?

@@ -1,6 +1,9 @@
 <div class="all-contents">
   <div class="container">
       <h3 class="title">登録情報変更</h3>
+
+      <%= render 'shared/error', model: f.object %>
+      
       <%= form_with model: @producer, url: producer_home_path, local: true do |f| %>
       <div class="shared-group">
         <table class="table">

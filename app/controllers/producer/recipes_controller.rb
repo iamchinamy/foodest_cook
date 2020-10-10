@@ -35,7 +35,7 @@ class Producer::RecipesController < ApplicationController
 		if @recipe.save
 			redirect_to producer_recipe_path(@recipe.id)
 		else
-			render "new"
+			render 'new'
 		end
 	end
 
@@ -44,8 +44,7 @@ class Producer::RecipesController < ApplicationController
 		if @recipe.update(recipe_params)
 			redirect_to producer_recipe_path(@recipe.id)
 		else
-			flash[:danger] = 'レシピ情報を正しく更新できませんでした。'
-			render :edit
+			render 'edit'
 		end
 	end
 
