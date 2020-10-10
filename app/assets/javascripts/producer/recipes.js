@@ -1,3 +1,4 @@
+jQuery(document).on('turbolinks:load', function(){
 $(function(){
 
 //レシピ完成イメージのプレビュー機能
@@ -54,4 +55,5 @@ $(function(){
 		$('.step-box').append(input);
 	});
 
+});
 });

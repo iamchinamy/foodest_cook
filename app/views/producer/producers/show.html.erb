@@ -1,14 +1,29 @@
-<div class="container">
-	<h2 class="producer-title">
-	<%= @producer.corporate_name %>
-	</h2>
-	<div class="producer-group">
-		<div class="producer-image-box">
-			<%= attachment_image_tag(@producer, :producer_image, fallback: "/images/no_image.png", format: "jpg", class: "producer-image") %>
-		</div>
+<div class="all-contents">
+	<div class="container">
+		<h3 class="title">
+		<%= @producer.corporate_name %>
+		</h2>
+		<div class="show-producer-group">
+			<div class="producer-image-box">
+				<%= attachment_image_tag(@producer, :producer_image, fallback: "/images/no_image.png", format: "jpg", class: "producer-image") %>
+			</div>
 
-		<div class="producer-descriptions">
-			
+			<div class="show-producer-item">
+				<div class="show-producer-intro">
+					<% if @producer.introduction.nil? %>
+						<p><%= @producer.introduction %></p>
+					<% else %>
+						<p><%=safe_join(@producer.introduction.split("\n"),tag(:br))%></p>
+					<% end %>
+				</div>
+
+				<div class="producer-descriptions">
+					<p>郵便番号　：　<%= @producer.post_code %></p>
+					<p>住所　：　<%= @producer.address %></p>
+					<p>電話番号　：　<%= @producer.phone_number %></p>
+				</div>
+			</div>
+			<div class="clearfix"></div>
 		</div>
 	</div>
 </div>

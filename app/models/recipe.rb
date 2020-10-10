@@ -13,9 +13,23 @@ class Recipe < ApplicationRecord
 	has_many :likes, dependent: :destroy
 	has_many :liked_producers, through: :likes, source: :producer
 
+	# いいねしてるかどうか
 	def liked_by?(producer)
 		likes.where(producer_id: producer.id).exists?
 	end
 
+	# Topページのランキング
+	def self.create_all_ranks
+		Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
+	end
+
+	# レシピ検索
+	def self.search(search)
+		if search
+			Recipe.where(['title LIKE ?', "%#{search}%"])
+		else
+			Recipe.all
+		end
+	end
 
 end

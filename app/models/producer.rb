@@ -12,9 +12,6 @@ class Producer < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_recipes, through: :likes, source: :recipe
   
-  def recipes
-  	return Post.where(producer_id: self.id)
-  end
 
 
 end

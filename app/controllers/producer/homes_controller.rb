@@ -3,6 +3,7 @@ class Producer::HomesController < ApplicationController
 	# マイページ関係
 
 	def my_page
+		@recipes = current_producer.recipes.all
 	end
 
 	def edit

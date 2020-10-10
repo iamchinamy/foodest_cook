@@ -6,6 +6,10 @@ class Producer::RecipesController < ApplicationController
 		@recipes = Recipe.all
 	end
 
+	def search
+		@recipes = Recipe.search(params[:keyword])
+	end
+
 	def show
 		@recipe = Recipe.find(params[:id])
 		@producer = @recipe.producer

@@ -1,0 +1,14 @@
+<h5 class="like-btn">
+	<% if producer_signed_in? %>
+		<% if @recipe.liked_by?(current_producer) %>
+			<%= link_to producer_recipe_likes_path(@recipe.id), method: :delete, remote: true do %>
+				<i class="fas fa-heart" style="color: red;"></i>
+			<% end %>
+		<% else %>
+			<%= link_to producer_recipe_likes_path(@recipe.id), method: :post, remote: true do %>
+				<i class="far fa-heart" style="color: red;"></i>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= @recipe.likes.count %>
+</h5>

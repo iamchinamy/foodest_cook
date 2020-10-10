@@ -1,68 +1,81 @@
-<div class="container">
-	<h2>マイページ</h2>
-	<div class="liked-recipe">
-		<h2>あなたのいいねしたレシピ</h2>
-		<p><%= current_producer.liked_recipes.count %>件</p>
-
-		<div class="liked-recipe-container">
-			<% current_producer.liked_recipes.each do |recipe| %>
-				<div class="liked-recipe-group">
-					<%= link_to producer_recipe_path(recipe.id) do %>
-						<%= attachment_image_tag(recipe, :recipe_image, fallback: "/images/no_image.png", format: "jpg", class: "liked-recipe-image") %>
+<div class="all-contents">
+	<div class="container">
+		<h3 class="title">マイページ</h3>
+    	<div class="shared-group">
+			<div class="mypage-recipe-item">
+				<h5>あなたのいいねしたレシピ　<%= current_producer.liked_recipes.count %>件</h5>
+				<div class="mypage-recipe-container">
+					<% current_producer.liked_recipes.each do |recipe| %>
+						<div class="mypage-recipe-group">
+							<%= link_to producer_recipe_path(recipe.id) do %>
+								<%= attachment_image_tag(recipe, :recipe_image, fallback: "/images/no_image.png", format: "jpg", class: "mypage-recipe-image") %>
+							<% end %>
+						</div>
 					<% end %>
 				</div>
-			<% end %>
-		</div>
-	</div>
-	<div class="informations">
-		<h2 class="mypage-title">登録情報</h2>
-		<%= link_to edit_producer_home_path(current_producer.id) do %>
-			<div class="btn btn-outline-info mypage-edit-btn">
-				<span>登録内容を編集する</span>
 			</div>
-		<% end %>
-		<div class="row mypage-content">
-			<table class="table">
-				<tr>
-					<th>プロフィール写真</th>
-					<td><%= attachment_image_tag current_producer, :producer_image, fallback: "/images/no_image.png", class: "mypage-image" %></td>
-				</tr>
-				<tr>
-					<th>登録メールアドレス</th>
-					<td><%= current_producer.email %></td>
-				</tr>
-				<tr>
-					<th>団体名</th>
-					<td><%= current_producer.corporate_name %></td>
-				</tr>
-				<tr>
-					<th>代表者様氏名</th>
-					<td><%= current_producer.representative %></td>
-				</tr>
-				<tr>
-					<th>郵便番号</th>
-					<td><%= current_producer.post_code %></td>
-				</tr>
-				<tr>
-					<th>住所</th>
-					<td><%= current_producer.address %></td>
-				</tr>
-				<tr>
-					<th>電話番号</th>
-					<td><%= current_producer.phone_number %></td>
-				</tr>
-				<tr>
-					<th>自己紹介文章</th>
-					<td><% if current_producer.introduction.nil? %>
-							<%= current_producer.introduction %>
-						<% else %>
-							<%=safe_join(current_producer.introduction.split("\n"),tag(:br))%>
-						<% end %>
-					</td>
-				</tr>
-			</table>
-
-			
+			<div class="mypage-line"></div>
+			<div class="mypage-recipe-item">
+				<h5>あなたの投稿レシピ　<%= @recipes.count %>件</h5>
+				<div class="mypage-recipe-container">
+					<% @recipes.each do |recipe| %>
+						<div class="mypage-recipe-group">
+							<%= link_to producer_recipe_path(recipe.id) do %>
+								<%= attachment_image_tag(recipe, :recipe_image, fallback: "/images/no_image.png", format: "jpg", class: "mypage-recipe-image") %>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<div class="informations">
+				<h5 class="mypage-title">登録情報</h5>
+				<%= link_to edit_producer_home_path(current_producer.id) do %>
+					<div class="btn btn-outline-info mypage-edit-btn">
+						<span>登録内容を編集する</span>
+					</div>
+				<% end %>
+				<div class="row mypage-content">
+					<table class="table">
+						<tr>
+							<th>プロフィール写真</th>
+							<td><%= attachment_image_tag current_producer, :producer_image, fallback: "/images/no_image.png", class: "mypage-image" %></td>
+						</tr>
+						<tr>
+							<th>登録メールアドレス</th>
+							<td><%= current_producer.email %></td>
+						</tr>
+						<tr>
+							<th>団体名</th>
+							<td><%= current_producer.corporate_name %></td>
+						</tr>
+						<tr>
+							<th>代表者様氏名</th>
+							<td><%= current_producer.representative %></td>
+						</tr>
+						<tr>
+							<th>郵便番号</th>
+							<td><%= current_producer.post_code %></td>
+						</tr>
+						<tr>
+							<th>住所</th>
+							<td><%= current_producer.address %></td>
+						</tr>
+						<tr>
+							<th>電話番号</th>
+							<td><%= current_producer.phone_number %></td>
+						</tr>
+						<tr>
+							<th>自己紹介文章</th>
+							<td><% if current_producer.introduction.nil? %>
+									<%= current_producer.introduction %>
+								<% else %>
+									<%=safe_join(current_producer.introduction.split("\n"),tag(:br))%>
+								<% end %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

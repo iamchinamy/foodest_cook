@@ -1,3 +1,4 @@
+jQuery(document).on('turbolinks:load', function(){
 $(function(){
 
 //プロフィールのプレビュー機能
@@ -10,5 +11,6 @@ $(function(){
     }
 	// ここまで
     reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+});
 });
 });

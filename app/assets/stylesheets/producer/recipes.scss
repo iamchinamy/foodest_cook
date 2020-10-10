@@ -1,15 +1,24 @@
+//共通
+.recipe-image {
+	width: 300px;
+	height: 230px;
+	object-fit: cover;
+	object-position: center;
+	float: left;
+}
+
 
 //recipe#index
 .index-recipe-container {
+	width: 70%;
+	margin: 50px auto;
+}
+
+.index-recipe-item {
 	width: 100%;
 	height: 230px;
 	margin: 15px 0;
 	display: table;
-}
-
-.images {
-	float: left;
-	padding: 30px 45px;
 }
 
 .index-recipe-image {
@@ -44,14 +53,25 @@
 	object-position: center;
 }
 
+.posting-form {
+	padding: 15px 0;
+}
+
+.new-recipe-btn {
+	margin: 20px 0;
+}
+
+
 
 
 //recipe#show
 //recipeイメージ・説明文箇所
-.recipe-title {
-	letter-spacing: 0.5em;
-	text-align: center;
-	padding-top: 50px;
+.show-recipe-image {
+	width: 430px;
+	height: 330px;
+	object-fit: cover;
+	object-position: center;
+	float: left;
 }
 
 .line {
@@ -194,10 +214,7 @@
 	width: 100%;
 	background-color: #EBEBE9;
 	text-align: center;
-}
-
-.ingredients-item {
-	padding-bottom: 50px;
+	padding: 50px 0;
 }
 
 .ingredients-item p {
@@ -209,7 +226,7 @@
 //recipe#show
 //作り方
 .recipe-method-group {
-	padding-bottom: 50px;
+	padding: 50px 0;
 }
 
 .recipe-method-content {

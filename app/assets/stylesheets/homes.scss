@@ -8,52 +8,139 @@
 
 
 //jquery部分
-.top-slider {
-	width: 80%;
-	height: 400px;
-	margin: 0 auto;
-	padding: 40px 0;
-    display: flex;
-    justify-content: space-between;
+.sliderArea {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 25px;
+    overflow: hidden;
+}
+.sliderArea.w300 {
+    max-width: 300px;
+}
+.slick-slide {
+    margin: 0 5px;
+}
+.slick-slide img {
+    width: 100%;
+    height: auto;
+}
+.slick-prev, .slick-next {
+    z-index: 1;
+}
+.slick-prev:before, .slick-next:before {
+    color: #000;
+}
+.slick-slide {
+    transition: all ease-in-out .3s;
+    opacity: .2;
+}
+.slick-active {
+    opacity: 1;
+}
+.slick-current {
+    opacity: 1;
+}
+.thumb {
+    margin: 20px 0 0;
+}
+.thumb .slick-slide {
+    cursor: pointer;
+}
+.thumb .slick-slide:hover {
+    opacity: .7;
+}
+.full-screen .slick-list {
+    overflow: visible;
+}
+.full-screen.slider {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.top-slider div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e45151;
-}
 
-.top-image-1 {
-	background-image: url(/images/agriculture.jpg);
-	background-size: cover;
-	background-repeat:  no-repeat;
-	background-position: center;
-}
 
-.top-image-2 {
-	background-image: url(/images/fishery.jpg);
-	background-size: cover;
-	background-repeat:  no-repeat;
-	background-position: center;
-}
-
-.top-image-3 {
-	background-image: url(/images/ranch.jpg);
-	background-size: cover;
-	background-repeat:  no-repeat;
-	background-position: center;
+.introduction {
+	background-color: #EBEBE9;
+	padding: 180px 0 100px 0;
 }
 
 .content {
 	font-family: 'Sawarabi Mincho', sans-serif;
 	text-align: center;
-	background-color: #EBEBE9;
-	padding: 100px 0;
+	padding-top: 50px;
 }
 .content p {
 	letter-spacing: 0.2rem;
 	line-height: 3rem;
+}
+
+
+
+//中間部分
+.middle-container {
+	display:flex;
+	flex-wrap: wrap;
+	border-bottom: 1px solid #EBEBE9;
+}
+
+
+//ランキング
+.ranking-container {
+	width: 60%;
+	padding: 100px;
+	padding-left: 150px;
+	text-align: center;
+}
+
+.ranking-item {
+	display: inline-block;
+	padding: 20px;
+}
+
+.ranking-item p {
+	border: solid 1px #212529;
+	padding: 5px 0;
+}
+
+.ranking-recipe-image:nth-child(1) {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center;
+	margin-bottom: 10px;
+}
+
+.more-recipe {
+	color: #E2CC6C;
+	border: 10px dotted #E2CC6C;
+	border-radius: 10%;
+	padding: 15px;
+	margin-top: 15px;
+}
+
+.more-recipes-btn {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	font-size: 23px;
+	margin-bottom: 10px;
+	display: inline-block;
+  	transition: .3s;
+  	-webkit-transform: scale(1);
+  	transform: scale(1);
+}
+
+.more-recipes-btn:hover{
+	-webkit-transform: scale(1.1);
+  	transform: scale(1.1);
+}
+
+
+
+
+
+//タグ
+.tag-container {
+	width: 40%;
 }
 
 
@@ -108,6 +195,33 @@
 	width: 100%;
 	border-top: 2px solid #EBEBE9;
 	margin: 20px auto;
+}
+
+.more-producer {
+	color: #E2CC6C;
+	border: 10px dotted #E2CC6C;
+	border-radius: 10%;
+	padding: 15px;
+	margin-top: 15px;
+}
+
+.more-producer-btn {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	font-size: 23px;
+	margin-bottom: 10px;
+	display: inline-block;
+  	transition: .3s;
+  	-webkit-transform: scale(1);
+  	transform: scale(1);
+}
+
+.more-producer-btn:hover{
+	-webkit-transform: scale(1.1);
+  	transform: scale(1.1);
+}
+
+.more-producer-container {
+	text-align: center;
 }
 
 
