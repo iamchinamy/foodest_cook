@@ -1,63 +1,81 @@
-<h2 class="recipe-title">
-	<%= @recipe.title %>
-</h2>
-<div class="line"></div>
-
-<div class="recipe-group">
-	<div class="recipe-image-box">
-		<%= attachment_image_tag(@recipe, :recipe_image, fallback: "no_image.png", format: "jpg", class: "recipe-image") %>
-	</div>
-
-	<div class="recipe-descriptions">
-		<div class="recipe-description">
-			<h5>レシピの説明</h5>
-			<div class="recipe-description-line"></div>
-			<p><%= @recipe.description %></p>
-		</div>
-		<div class="total-time">
-			<h5>調理時間</h5>
-			<div class="recipe-description-line"></div>
-			<p><%= @recipe.total_time %></p>
-		</div>
-		<div class="poster">
-			<h5>投稿者</h5>
-			<div class="recipe-description-line"></div>
-			<p><%= @recipe.producer.corporate_name %></p>
-		</div>
-	</div>
-	<div class="clearfix"></div>
-</div>
-
-<!-- 投稿者のみが編集できるようにする -->
-<% if @producer.id == current_producer.id %>
-	<div class="edit-btn">
-		<%= link_to edit_producer_recipe_path(@recipe.id), class: "btn-animation-02" do %>
-			<span>レシピを修正</span>
-		<% end %>
-	</div>
-<% end %>
-
-<!-- レシピの材料部分 -->
-<div class="recipe-ingredients-group">
-	<h2 class="recipe-title">材料</h2>
+<div class="all-contents">
+	<h2 class="title">
+		<%= @recipe.title %>
+	</h2>
 	<div class="line"></div>
-	<div class="ingredients-item">
-		<% @ingredients.each do |ingredient| %>
-			<p><%= ingredient.item %>　　</p>
-			<p><%= ingredient.amount %></p><br>
-		<% end %>
-	</div>
-</div>
 
-<!-- レシピの作り方部分 -->
-<div class="recipe-method-group">
-	<h2 class="recipe-title">作り方</h2>
-	<div class="line"></div>
-	<div class="recipe-method-content">
-		<% i = 0 %>
-		<% @steps.each do |step| %>
-			<span><%= i += 1 %>．</span>
-			<p><%= step.method %></p><br>
-		<% end %>
+	<div id="likes_buttons_<%= @recipe.id %>">
+		<%= render partial: 'producer/likes/like', locals: { recipe: @recipe} %>
+	</div>
+
+	<div class="recipe-group">
+		<%= attachment_image_tag(@recipe, :recipe_image, fallback: "/images/no_image.png", format: "jpg", class: "show-recipe-image") %>
+
+		<div class="recipe-descriptions">
+			<div class="recipe-description">
+				<h5>レシピの説明</h5>
+				<div class="recipe-description-line"></div>
+				<p>
+					<% if @recipe.description.nil? %>
+						<%= @recipe.description %>
+					<% else %>
+						<%=safe_join(@recipe.description.split("\n"),tag(:br))%>
+					<% end %>
+				</p>
+			</div>
+			<div class="total-time">
+				<h5>調理時間</h5>
+				<div class="recipe-description-line"></div>
+				<p><%= @recipe.total_time %></p>
+			</div>
+			<div class="poster">
+				<h5>投稿者</h5>
+				<div class="recipe-description-line"></div>
+				<p><%= @recipe.producer.corporate_name %></p>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+
+		<div class="poster-group">
+			<%= link_to producer_producer_path(@recipe.producer.id) do %>
+				<%= attachment_image_tag @recipe.producer, :producer_image, fallback: "/images/no_image.png", class: "poster-image" %>
+				<%= @recipe.producer.corporate_name %>　さんのレシピ
+			<% end %>
+		</div>
+
+	</div>
+
+	<!-- 投稿者のみが編集できるようにする -->
+	<% if @producer.id == current_producer.id %>
+		<div class="recipe-edit-btn">
+			<%= link_to edit_producer_recipe_path(@recipe.id), class: "btn-animation-02" do %>
+				<span>レシピを修正</span>
+			<% end %>
+		</div>
+	<% end %>
+
+	<!-- レシピの材料部分 -->
+	<div class="recipe-ingredients-group">
+		<h3 class="title">材料</h3>
+		<div class="line"></div>
+		<div class="ingredients-item">
+			<% @ingredients.each do |ingredient| %>
+				<p><%= ingredient.item %>　　</p>
+				<p><%= ingredient.amount %></p><br>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- レシピの作り方部分 -->
+	<div class="recipe-method-group">
+		<h3 class="title">作り方</h3>
+		<div class="line"></div>
+		<div class="recipe-method-content">
+			<% i = 0 %>
+			<% @steps.each do |step| %>
+				<span><%= i += 1 %>．</span>
+				<p><%= step.method %></p><br>
+			<% end %>
+		</div>
 	</div>
 </div>

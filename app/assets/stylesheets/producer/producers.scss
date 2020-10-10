@@ -1,0 +1,56 @@
+//producers#index
+.index-producer-container {
+	width: 70%;
+	margin: 50px auto;
+}
+
+.index-producer-item {
+	width: 100%;
+	height: 230px;
+	margin: 15px 0;
+}
+
+.index-producer-image {
+	width: 300px;
+	height: 230px;
+	object-fit: cover;
+	object-position: center;
+	float: left;
+}
+
+.producer-details {
+	float: right;
+	height: 200px;
+	width: 400px;
+	padding: 15px 0;
+}
+
+.details h5 {
+	margin: 20px 0;
+}
+
+.producer-index-line {
+	width: 100%;
+	border-top: 2px solid #EBEBE9;
+	margin: 0 auto;
+}
+
+
+
+
+//producer#show
+.show-producer-group {
+	width: 90%;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+
+.show-producer-item {
+	float: right;
+	line-height: 2rem;
+	letter-spacing: 0.3rem;
+}
+
+.producer-descriptions {
+	margin-top: 15px;
+}

@@ -1,6 +1,9 @@
 class Producer::HomesController < ApplicationController
+	before_action :authenticate_producer!
+	# マイページ関係
 
 	def my_page
+		@recipes = current_producer.recipes.all
 	end
 
 	def edit
@@ -19,7 +22,7 @@ class Producer::HomesController < ApplicationController
 
 private
 	def producer_params
-		params.require(:producer).permit(:email, :corporate_name, :representative, :post_code, :address, :phone_number)
+		params.require(:producer).permit(:email, :corporate_name, :representative, :post_code, :address, :phone_number, :introduction, :producer_image)
 	end
 
 	def find_producer_by_id
