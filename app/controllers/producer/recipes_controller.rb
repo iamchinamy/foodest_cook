@@ -33,8 +33,10 @@ class Producer::RecipesController < ApplicationController
 		@recipe = Recipe.new(recipe_params)
 		@recipe.producer_id = current_producer.id
 		if @recipe.save
+			flash[:success] = "レシピを追加しました"
 			redirect_to producer_recipe_path(@recipe.id)
 		else
+			flash.now[:danger] = "レシピの投稿に失敗しました"
 			render 'new'
 		end
 	end
@@ -42,9 +44,19 @@ class Producer::RecipesController < ApplicationController
 	def update
 		@recipe = Recipe.find(params[:id])
 		if @recipe.update(recipe_params)
+			flash[:success] = "レシピを修正しました。"
 			redirect_to producer_recipe_path(@recipe.id)
 		else
+			flash.now[:danger] = "レシピの修正に失敗しました"
 			render 'edit'
+		end
+	end
+
+	def destroy
+		@recipe = Recipe.find(params[:id])
+		if @recipe.destroy
+			flash[:notice] = 'レシピを削除しました'
+			redirect_to producer_recipes_path
 		end
 	end
 

@@ -8,6 +8,18 @@
 		<%= render partial: 'producer/likes/like', locals: { recipe: @recipe} %>
 	</div>
 
+	<% if @producer.id == current_producer.id %>
+		<div class="recipe-edit-btn">
+			<%= link_to edit_producer_recipe_path(@recipe.id), class: "btn btn-outline-success" do %>
+				<span>レシピを修正</span>
+			<% end %>
+
+			<%= link_to producer_recipe_path(@recipe.id), class: "btn btn-outline-danger", method: :delete, 'data-confirm' => '本当に削除しますか？' do %>
+				<span>レシピを削除</span>
+			<% end %>
+		</div>
+	<% end %>
+	
 	<div class="recipe-group">
 		<%= attachment_image_tag(@recipe, :recipe_image, fallback: "/images/no_image.png", format: "jpg", class: "show-recipe-image") %>
 
@@ -44,15 +56,6 @@
 		</div>
 
 	</div>
-
-	<!-- 投稿者のみが編集できるようにする -->
-	<% if @producer.id == current_producer.id %>
-		<div class="recipe-edit-btn">
-			<%= link_to edit_producer_recipe_path(@recipe.id), class: "btn-animation-02" do %>
-				<span>レシピを修正</span>
-			<% end %>
-		</div>
-	<% end %>
 
 	<!-- レシピの材料部分 -->
 	<div class="recipe-ingredients-group">

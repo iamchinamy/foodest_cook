@@ -28,11 +28,64 @@
 	clear: both;
 }
 
+
+
+//sign-up・sign-in
+.signs-container {
+	margin: 100px 0;
+	width: 100%;
+}
+
+.signs-form-container {
+	width: 85%;
+	margin: 40px auto;
+}
+
+.signs-form-grourp {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.signs-form-title {
+	width: 40%;
+	display: inline-block;
+}
+
+.signs-form-content {
+	width: 55%;
+}
+
+.signs-btn-group {
+	text-align: center;
+}
+
+.signs-btn {
+	width: 20%;
+}
+
+
+
+//バリデーションメッセージ
 .error-message {
 	width: 50%;
 	margin: 0 auto;
 	margin-bottom: 40px;
 }
+
+
+
+///フラッシュメッセージ
+.flash-message {
+	display: block;
+	margin-top: 150px;
+	padding: 20px;
+	background-color: beige;
+	text-align: center;
+}
+
+
+
+
 
 .all-contents {
 	padding-top: 180px;
