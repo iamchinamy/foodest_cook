@@ -13,6 +13,7 @@ class Producer::HomesController < ApplicationController
 	def update
 		@producer = find_producer_by_id
 		if @producer.update(producer_params)
+			flash[:success] = 'お客様の情報を更新しました。'
 			redirect_to my_page_producer_homes_path
 		else
 			flash[:danger] = 'お客様の情報を更新できませんでした。'

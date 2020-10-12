@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(version: 2020_10_09_124348) do
     t.index ["reset_password_token"], name: "index_producers_on_reset_password_token", unique: true
   end
 
+  create_table "products", id: false, force: :cascade do |t|
+    t.integer "id"
+    t.integer "status"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.integer "producer_id"
     t.string "recipe_image_id"
