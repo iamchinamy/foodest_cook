@@ -1,4 +1,6 @@
 class Producer::LikesController < ApplicationController
+	before_action :authenticate_producer!
+	
 	def create
 		@recipe = Recipe.find(params[:recipe_id])
 		@like = current_producer.likes.build(recipe_id: params[:recipe_id])

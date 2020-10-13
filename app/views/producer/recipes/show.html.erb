@@ -8,7 +8,7 @@
 		<%= render partial: 'producer/likes/like', locals: { recipe: @recipe} %>
 	</div>
 
-	<% if @producer.id == current_producer.id %>
+	<% if @producer == current_producer %>
 		<div class="recipe-edit-btn">
 			<%= link_to edit_producer_recipe_path(@recipe.id), class: "btn btn-outline-success" do %>
 				<span>レシピを修正</span>
