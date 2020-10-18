@@ -13,6 +13,8 @@ class Recipe < ApplicationRecord
 	has_many :likes, dependent: :destroy
 	has_many :liked_producers, through: :likes, source: :producer
 
+	has_many :tags, dependent: :destroy
+
 	validates :title, presence: true
 	validates :description, length: {maximum: 56, minimum: 2}
 	validates :total_time, presence: true

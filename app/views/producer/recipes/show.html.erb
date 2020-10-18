@@ -40,10 +40,14 @@
 				<div class="recipe-description-line"></div>
 				<p><%= @recipe.total_time %></p>
 			</div>
-			<div class="poster">
-				<h5>投稿者</h5>
+			<div class="tags">
+				<h5>タグ</h5>
 				<div class="recipe-description-line"></div>
-				<p><%= @recipe.producer.corporate_name %></p>
+				<div class="tag-box">
+					<% @recipe.tags.each do |tag| %>
+					  <span class="label"><%= tag.name %></span>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<div class="clearfix"></div>

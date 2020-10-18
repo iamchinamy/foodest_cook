@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_124348) do
+ActiveRecord::Schema.define(version: 2020_10_18_061906) do
+
+  create_table "cart_items", id: false, force: :cascade do |t|
+    t.integer "id"
+  end
+
+  create_table "customers", id: false, force: :cascade do |t|
+    t.integer "id"
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.string "item"
@@ -25,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_10_09_124348) do
     t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ordered_products", id: false, force: :cascade do |t|
+    t.integer "id"
+  end
+
+  create_table "orders", id: false, force: :cascade do |t|
+    t.integer "id"
   end
 
   create_table "producers", force: :cascade do |t|
@@ -61,8 +77,23 @@ ActiveRecord::Schema.define(version: 2020_10_09_124348) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reports", id: false, force: :cascade do |t|
+    t.integer "id"
+  end
+
+  create_table "shippings", id: false, force: :cascade do |t|
+    t.integer "id"
+  end
+
   create_table "steps", force: :cascade do |t|
     t.string "method"
+    t.integer "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
