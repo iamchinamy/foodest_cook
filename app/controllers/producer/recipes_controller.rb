@@ -34,9 +34,10 @@ class Producer::RecipesController < ApplicationController
 		@recipe.producer_id = current_producer.id
 		if @recipe.save
    			tags = Vision.get_image_data(@recipe.recipe_image)
-    		tags.each do |tag|
-      			@recipe.tags.create(name: tag)
-    		end
+    		# tags.each do |tag|
+      # 			@recipe.tags.create(name: tag)
+    		# end
+    		Tag.create_tag_by_vision_api(@recipe, tags)
 			flash[:success] = "レシピを追加しました"
 			redirect_to producer_recipe_path(@recipe.id)
 		else
